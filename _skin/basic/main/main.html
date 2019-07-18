@@ -1,0 +1,288 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#main_banner_box_tables div.main_item_boxLine').hover(
+		function(){
+			//$(this).find('.main_item_titleBox_mask').fadeOut('fast');
+			$(this).find('.main_item_titleBox_mask').hide();
+		},
+		function(){
+			//$(this).find('.main_item_titleBox_mask').fadeIn('fast');
+			$(this).find('.main_item_titleBox_mask').show();
+		}
+	);
+
+	$('#main_banner_box_tables .mainBoxlink').hover(
+		function(){
+			$(this).css('background-image',$(this).css('background-image').replace('_off','_on') );
+		},
+		function(){
+			$(this).css('background-image',$(this).css('background-image').replace('_on','_off') );
+		}
+	);
+
+	$('#main_mini_gallery img').hover(
+		function(){
+			$(this).css('border','1px solid #f78000');
+		},
+		function(){
+			$(this).css('border','1px solid #000000');
+		}
+	);
+	$('#main_backgroundImages').fadeIn(2000);
+
+	/* 팝업 */
+
+	cookiedata = document.cookie; 
+
+
+
+	if(cookiedata.indexOf("mainpop1=done1") < 0){
+		$('#pup_1').css({ 'top' : '110px' , 'left' : '10px' ,'width' : '300px' }).show();
+	}
+
+		
+
+/*
+	if(cookiedata.indexOf("mainpop2=done2") < 0){
+		$('#pup_2').css({ 'top' : '380px' , 'left' : '10px' ,'width' : '300px' }).show();
+	}
+*/
+	
+
+/*
+	if(cookiedata.indexOf("mainpop3=done3") < 0){
+		$('#pup_3').css({ 'top' : '110px' , 'left' : '620px' ,'width' : '300px' }).show();
+	}
+*/
+	
+	
+/*
+	if(cookiedata.indexOf("mainpop4=done4") < 0){
+		$('#pup_4').css({ 'top' : '110px' , 'left' : '925px' ,'width' : '300px' }).show();
+	}
+*/
+	
+	
+	
+})
+
+function setCookie( name, value, expiredays ){ 
+	var todayDate = new Date(); 
+	todayDate.setDate( todayDate.getDate() + expiredays ); 
+	document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";" 
+} 
+function closeWinPup( pup , name,value ){
+	setCookie( name, value , 1 );
+	$('#'+pup).hide();
+}
+</script>
+
+<div id="main_contants">
+<div id="main_backgroundImages" class="marin_background"></div><!-- 백그라운드 -->
+
+	<div class="main_contantsArea">
+		<div class="main_BoxArea">
+		
+			<table cellpadding=0 cellspacing=0 border=0 width="1000" height="308" id="main_banner_box_tables">
+				<tr>
+					<td width="20%" align=center class="main_item_boxLineBg">
+
+						<div class="main_item_images1 main_item_boxLine">
+
+							<div class="main_item_titleBox1"></div>
+							
+							<table class="main_item_ImgBox1 mainBoxlink">
+								<tr>
+									<td align=center>
+										<div class="items" onclick="location.href='../application/?applicationKey=56';"><img src="{$imgDir}/mainBoxAppTitle1.png" alt="커피바리스타"></div>
+									</td>
+								</tr>
+							</table>
+
+						<div class="main_item_titleBox_mask"></div>
+						</div>
+
+					</td>
+					<td width="20%" align=center class="main_item_boxLineBg">
+
+						<div class="main_item_images2 main_item_boxLine">
+
+							<div class="main_item_titleBox2"></div>
+
+							<table class="main_item_ImgBox2 mainBoxlink">
+								<tr>
+									<td align=center>
+										<div class="items" onclick="location.href='../application/?applicationKey=59';"><img src="{$imgDir}/mainBoxAppTitle4.png" alt="와인소믈리에"></div>
+										<div class="items" onclick="location.href='../application/?applicationKey=90';"><img src="{$imgDir}/mainBoxAppTitle8.png" alt="워터마스터소믈리에"></div>
+										<div class="items" onclick="location.href='../application/?applicationKey=58';"><img src="{$imgDir}/mainBoxAppTitle3.png" alt="믹솔로지스트"></div>
+									</td>
+								</tr>
+							</table>
+
+							<div class="main_item_titleBox_mask"></div>
+						</div>
+
+					</td>
+					<td width="20%" align=center class="main_item_boxLineBg">
+
+						<div class="main_item_images3 main_item_boxLine">
+							
+							<div class="main_item_titleBox3"></div>
+
+							<table class="main_item_ImgBox3 mainBoxlink">
+								<tr>
+									<td align=center>
+										<div class="items" onclick="location.href='../application/?applicationKey=61';"><img src="{$imgDir}/mainBoxAppTitle6.png" alt="외식경영관리사"></div>
+										<div class="items" onclick="location.href='../application/?applicationKey=62';"><img src="{$imgDir}/mainBoxAppTitle7.png" alt="식음료관리사"></div>
+									</td>
+								</tr>
+							</table>
+
+							<div class="main_item_titleBox_mask"></div>
+						</div>
+
+					</td>
+					<td width="20%" align=center class="main_item_boxLineBg">
+
+						<div class="main_item_images4 main_item_boxLine">
+							
+							<div class="main_item_titleBox4"></div>
+
+							<table class="main_item_ImgBox4 mainBoxlink">
+								<tr>
+									<td align=center>
+										<div class="items" onclick="location.href='../application/?applicationKey=91';"><img src="{$imgDir}/mainBoxAppTitle9.png" alt="외식실무영어"></div>
+										<div class="items" onclick="location.href='../application/?applicationKey=92';"><img src="{$imgDir}/mainBoxAppTitle10.png" alt="외식실무일본어"></div>
+									</td>
+								</tr>
+							</table>
+
+							<div class="main_item_titleBox_mask"></div>
+						</div>
+
+					</td>
+					<td width="20%" align=center class="main_item_boxLineBg">
+
+						<div class="main_item_images5 main_item_boxLine">
+							
+							<div class="main_item_titleBox5"></div>
+
+							<table class="main_item_ImgBox5 mainBoxlink">
+								<tr>
+									<td align=center>
+										<div class="items" onclick="location.href='../application/?applicationKey=93';"><img src="{$imgDir}/mainBoxAppTitle11.png" alt="쇼콜라띠에"></div>
+									</td>
+								</tr>
+							</table>
+						</div>
+
+					</td>
+				</tr>
+			</table>
+
+		</div>
+	</div>
+
+	<div class="main_opacityBoxTopline"></div>
+	<div class="main_opacityBox"></div>
+	<div class="main_contantsBox">
+		<div class="main_contantsArea">
+		
+
+			<table cellpadding=0 cellspacing=0 width="100%" style="margin-top:20px;">
+				<tr>
+					<td width="30%" valign=top>
+
+						<table cellpadding=0 cellspacing=0 width=90% id="main_mini_board">
+							<tr>
+								<td width="80%" height=30 valign=top><img src="{$imgDir}/title_mainNotice.png"></td>
+								<td align=right  valign=top><a href="./comunity/?BoardKey={$boardKey}"><span class="btn_mainBoardMore">+MORE</span></a></td>
+							</tr>
+							<!-- BLOCK BEGIN BOARD_LOOP -->
+							<tr>
+								<td width="80%" height=18><a href="./comunity/view.asp?BoardKey=1&Idx={$Idx}" class="mainBoardMini">{$Title}</a></td>
+								<td><a href="./comunity/view.asp?BoardKey={$boardKey}&Idx={$Idx}" class="mainBoardMini">{$Indate}</a></td>
+							</tr>
+							<!-- BLOCK END BOARD_LOOP -->
+						</table>
+					</td>
+					<td width="40%" valign=top>
+					
+						<table cellpadding=0 cellspacing=0 width=90% >
+							<tr>
+								<td width="80%" height=30 valign=top><img src="{$imgDir}/title_mainPhoto.png"></td>
+								<td align=right  valign=top><a href="./comunity/?BoardKey={$galleryKey}"><span class="btn_mainBoardMore">+MORE</span></a></td>
+							</tr>
+						</table>
+
+						<table cellpadding=0 cellspacing=0 id="main_mini_gallery">
+							<tr>
+								<!-- BLOCK BEGIN GALLERY_LOOP -->
+								<td width="105"valign=top><a href="./comunity/view.asp?BoardKey={$galleryKey}&Idx={$Idx}" class="mainBoardMini">{$Photo}{$Title}</a></td>
+								<!-- BLOCK END GALLERY_LOOP -->
+							</tr>
+						</table>
+					
+					</Td>
+					<td width="20%" valign=top>
+						<table cellpadding=0 cellspacing=0 width=90% id="main_mini_board">
+							<tr>
+								<td width="80%" height=30 valign=top><img src="{$imgDir}/title_mainApp.png"></td>
+								<td align=right  valign=top><a href="./application/allViewL.asp"><span class="btn_mainBoardMore">+MORE</span></a></td>
+							</tr>
+							<!-- BLOCK BEGIN APPL_LOOP -->
+							<tr>
+								<td width="80%" height=18><a href="./application/write.asp?applicationKey={$CodeIdx}" class="mainBoardMini">{$ProgramName}</a></td>
+								<td><a href="./application/write.asp?applicationKey={$CodeIdx}" class="mainBoardMini">{$OnData}</a></td>
+							</tr>
+							<!-- BLOCK END APPL_LOOP -->
+						</table>
+					</Td>
+				</tr>
+			</table>
+
+
+		
+		</div>
+	</div>
+</div>
+
+
+<!-- 중단 레이어 닫기 -->
+</div>
+
+<div id="pup_1" class="pupup_wrap">
+	<div><a href="#"><img src="/pup/20190713.jpg"></a></div>
+	<div class="pup_bottom_area"> <input type="checkbox" name="pupclose" onclick="closeWinPup('pup_1','mainpop1','done1')"> 오늘하루 닫기 <a href="javascript:void($('#pup_1').hide());">[닫기]</a></div>
+</div>
+<map name="Map_pup_1" id="Map_pup_1">
+  <area shape="rect" coords="326,444,470,482" href="./comunity/view.asp?pageNo=1&BoardKey=1&sName=1&sId=0&sTitle=1&sContant=0&sWord=&Idx=897" />
+</map>
+
+<div id="pup_2" class="pupup_wrap">
+	<div><a href="./comunity/view.asp?pageNo=1&BoardKey=1&sName=1&sId=0&sTitle=1&sContant=0&sWord=&Idx=1524"><img src="/pup/20190331.jpg"></a></div>
+	<div class="pup_bottom_area"> <input type="checkbox" name="pupclose" onclick="closeWinPup('pup_2','mainpop2','done2')"> 오늘하루 닫기 <a href="javascript:void($('#pup_2').hide());">[닫기]</a></div>
+</div>
+<map name="Map_pup_2" id="Map_pup_2">
+  <area shape="rect" coords="339,293,485,332" href="./comunity/view.asp?pageNo=1&BoardKey=1&sName=1&sId=0&sTitle=1&sContant=0&sWord=&Idx=496" />
+</map>
+
+
+<div id="pup_3" class="pupup_wrap">
+	<div><a href="./comunity/view.asp?pageNo=1&BoardKey=1&sName=1&sId=0&sTitle=1&sContant=0&sWord=&Idx=1480"><img src="/pup/20190129.jpg" style="width:100%;"></a></div>
+	<div class="pup_bottom_area"> <input type="checkbox" name="pupclose" onclick="closeWinPup('pup_3','mainpop3','done3')"> 오늘하루 닫기 <a href="javascript:void($('#pup_3').hide());">[닫기]</a></div>
+</div>
+<map name="Map_pup_3" id="Map_pup_3">
+  <area shape="rect" coords="339,293,485,332" href="./comunity/view.asp?pageNo=1&BoardKey=1&sName=1&sId=0&sTitle=1&sContant=0&sWord=&Idx=682" />
+</map>
+
+<div id="pup_4" class="pupup_wrap">
+	<div><a href="./comunity/view.asp?pageNo=1&BoardKey=1&sName=1&sId=0&sTitle=1&sContant=0&sWord=&Idx=1479"><img src="/pup/20190130.jpg"></a></div>
+	<div class="pup_bottom_area"> <input type="checkbox" name="pupclose" onclick="closeWinPup('pup_4','mainpop4','done4')"> 오늘하루 닫기 <a href="javascript:void($('#pup_4').hide());">[닫기]</a></div>
+</div>
+<map name="Map_pup_4" id="Map_pup_4">
+  <area shape="rect" coords="339,293,485,332" href="./comunity/view.asp?pageNo=1&BoardKey=1&sName=1&sId=0&sTitle=1&sContant=0&sWord=&Idx=496" />
+</map>
+
+<!-- 중단 대체 레이어 열기 -->
+<div>

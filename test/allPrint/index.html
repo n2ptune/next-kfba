@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous"></script>
+  <title>수검표 일괄 출력 테스트</title>
+  <style>
+    @media print {
+      @page { margin: 0; }
+      table { page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+  <div id="printArea">
+    <table>
+      <thead>
+        <th>성명</th>
+        <th>아이디</th>
+        <th>이메일</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>이경환</td>
+          <td>n2ptune</td>
+          <td>n2ptune@outlook.com</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="printArea">
+      <table>
+        <thead>
+          <th>성명</th>
+          <th>아이디</th>
+          <th>이메일</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>아무개</td>
+            <td>aaa</td>
+            <td>aaa@naver.com</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script>
+      $(document).ready(function() {
+        printGo();
+        console.log($('#prontArea'));
+      });
+
+      function printGo() {
+        var w = window.open('', '', 'width=1200, height=1200');
+        var f = [
+          { name: '이경환', id: 'n2ptune', email: 'n2ptune@outlook.com' },
+          { name: '아무개', id: 'aaaa', email: 'aaa@naver.com' }
+        ];
+
+        self.focus();
+        w.document.open();
+        w.document.write('<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">');
+        w.document.write('<HEAD><TITLE> 수검표 출력 </TITLE>');
+        w.document.write('<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />');
+        w.document.write('<meta http-equiv="X-UA-Compatible" content="ie=edge">');
+        w.document.write('<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">');
+        w.document.write('<style>')
+        w.document.write('@media print {')
+        w.document.write('@page { margin: 0; }')
+        w.document.write('#printArea { page-break-after: always; }')
+        w.document.write('}')
+        w.document.write('</style>')
+        w.document.write('</HEAD>');
+        w.document.write('<body>');
+        for(var i = 0; i < f.length; i++) {
+          w.document.write('<div id="printArea">');
+          w.document.write('<table>');
+          w.document.write('<th>성명</th><th>아이디</th><th>이메일</th>');
+          w.document.write('<tr>');
+          w.document.write('<td>' + f[i].name + '</td>');
+          w.document.write('<td>' + f[i].id + '</td>');
+          w.document.write('<td>' + f[i].email + '</td>');
+          w.document.write('</tr></table></div>');
+        }
+        w.document.write('</body>');
+        w.print();
+        w.close();
+      }
+    </script>
+</body>
+</html>

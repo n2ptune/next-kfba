@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="EUC-KR">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-simplyscroll/2.1.1/jquery.simplyscroll.min.css" integrity="sha256-1nk6pWx4LkZXNHupUDSQCooz4uPtKRuLkxjNJscy7iQ=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-simplyscroll/2.1.1/jquery.simplyscroll.min.js" integrity="sha256-YtGxtUmiB9uUN3SSqXM6k7zvDEchlvFCfXzpEzhFZPw=" crossorigin="anonymous"></script>
+  <script src="./test.js"></script>
+  <style>
+    .container {
+      width: 100%;
+      /* height: 200px; */
+      margin: 0 auto;
+    }
+    .simply-scroll, .simply-scroll-container, .simply-scroll-clip {
+      width: 100% !important;
+      height: 80px !important;
+    }
+    li {
+      width: 100%;
+    }
+    li img {
+      display: list-item;
+      width: 225px;
+      height: 80px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <ul class="rolling">
+      <li><a target="_blank" href="http://school.gyo6.net/interneths/intro"><img src="../../_skin/basic/images/new_test_site/경주정보고등학교.jpg" alt="경주정보고등학교"></a></li>
+      <li><a target="_blank" href="https://www.kmcu.ac.kr/"><img src="../../_skin/basic/images/new_test_site/계명문화대학교.jpg" alt="계명문화대학교"></a></li>
+      <li><a target="_blank" href="http://guriwel.or.kr/"><img src="../../_skin/basic/images/new_test_site/구리시장애인종합복지관.jpg" alt="구리시장애인종합복지관"></a></li>
+      <li><a target="_blank" href="http://www.daom.ac/main/index.asp"><img src="../../_skin/basic/images/new_test_site/다옴직업전문학교.jpg" alt="다옴직업전문학교"></a></li>
+      <li><a target="_blank" href="http://www.tk.ac.kr/"><img src="../../_skin/basic/images/new_test_site/대경대학교.jpg" alt="대경대학교"></a></li>
+      <li><a target="_blank" href="www.tsc.ac.kr/"><img src="../../_skin/basic/images/new_test_site/대구과학대학교.jpg" alt="대구과학대학교"></a></li>
+      <li><a target="_blank" href="http://www.dgit.hs.kr/index.do"><img src="../../_skin/basic/images/new_test_site/대구관광고.jpg" alt="대구관광고"></a></li>
+      <li><a target="_blank" href="www.seoboo.hs.kr"><img src="../../_skin/basic/images/new_test_site/대구서부공고.jpg" alt="대구서부공고"></a></li>
+      <li><a target="_blank" href="/"><img src="../../_skin/basic/images/new_test_site/덕천빌리지.jpg" alt="덕천빌리지"></a></li>
+      <li><a target="_blank" href="https://blog.naver.com/mokambo1314"><img src="../../_skin/basic/images/new_test_site/모캄보커피아카데미학원.jpg" alt="모캄보커피아카데미학원"></a></li>
+      <li><a target="_blank" href="https://www.bscu.ac.kr/"><img src="../../_skin/basic/images/new_test_site/백석문화대학교.jpg" alt="백석문화대학교"></a></li>
+      <li><a target="_blank" href="http://www.bundang-mgt.hs.kr/"><img src="../../_skin/basic/images/new_test_site/분당경영고등학교.jpg" alt="분당경영고등학교"></a></li>
+      <li><a target="_blank" href="www.snfn.hs.kr"><img src="../../_skin/basic/images/new_test_site/성남금융고등학교.jpg" alt="성남금융고등학교"></a></li>
+      <li><a target="_blank" href="http://www.woorimaum.org/"><img src="../../_skin/basic/images/new_test_site/성남시한마음복지관.jpg" alt="성남시한마음복지관"></a></li>
+      <li><a target="_blank" href="http://home.sjcu.ac.kr"><img src="../../_skin/basic/images/new_test_site/세종사이버대학교.jpg" alt="세종사이버대학교"></a></li>
+      <li><a target="_blank" href="http://www.sc.ac.kr/"><img src="../../_skin/basic/images/new_test_site/수성대학교.jpg" alt="수성대학교"></a></li>
+      <li><a target="_blank" href="http://www.ssc.ac.kr/"><img src="../../_skin/basic/images/new_test_site/수원과학대학교.jpg" alt="수원과학대학교"></a></li>
+      <li><a target="_blank" href="https://www.asea.ac.kr/"><img src="../../_skin/basic/images/new_test_site/아세아항공직업전문학교.jpg" alt="아세아항공직업전문학교"></a></li>
+      <li><a target="_blank" href="https://xn--oy2b17bb6is9cxzbhzfytsb3i.com/"><img src="../../_skin/basic/images/new_test_site/양주바리스타학원.jpg" alt="양주바리스타학원"></a></li>
+      <li><a target="_blank" href="http://www.yit.ac.kr/"><img src="../../_skin/basic/images/new_test_site/여주대학교.jpg" alt="여주대학교"></a></li>
+      <li><a target="_blank" href="http://www.yeonsung.ac.kr/"><img src="../../_skin/basic/images/new_test_site/연성대학교.jpg" alt="연성대학교"></a></li>
+      <li><a target="_blank" href="http://www.osgwc.or.kr/"><img src="../../_skin/basic/images/new_test_site/오산세교복지타운.jpg" alt="오산세교복지타운"></a></li>
+      <li><a target="_blank" href="http://www.wu.ac.kr/"><img src="../../_skin/basic/images/new_test_site/원광보건대학교.jpg" alt="원광보건대학교"></a></li>
+      <li><a target="_blank" href="https://wealmoonhwa.modoo.at/"><img src="../../_skin/basic/images/new_test_site/윌문화인재평생교육원.jpg" alt="윌문화인재평생교육원"></a></li>
+      <li><a target="_blank" href="http://www.topclassacademy.com/"><img src="../../_skin/basic/images/new_test_site/유니버셜 커피앤브런치학원.jpg" alt="유니버셜 커피앤브런치학원"></a></li>
+      <li><a target="_blank" href="www.2000.hs.kr"><img src="../../_skin/basic/images/new_test_site/이천제일고등학교.jpg" alt="이천제일고등학교"></a></li>
+      <li><a target="_blank" href="http://www.icjb.or.kr/"><img src="../../_skin/basic/images/new_test_site/인천장애인종합복지관.jpg" alt="인천장애인종합복지관"></a></li>
+      <li><a target="_blank" href="http://www.dorip.ac.kr/_module/intro2018/intro.html"><img src="../../_skin/basic/images/new_test_site/전남도립대학교.jpg" alt="전남도립대학교"></a></li>
+      <li><a target="_blank" href="http://www.jbsc.ac.kr/index.jsp"><img src="../../_skin/basic/images/new_test_site/전북과학대학교.jpg" alt="전북과학대학교"></a></li>
+      <li><a target="_blank" href="http://www.cst.ac.kr/"><img src="../../_skin/basic/images/new_test_site/조선이공대학교.jpg" alt="조선이공대학교"></a></li>
+      <li><a target="_blank" href="http://www.jwu.ac.kr/"><img src="../../_skin/basic/images/new_test_site/중원대학교.jpg" alt="중원대학교"></a></li>
+      <li><a target="_blank" href="http://www.cs.ac.kr/"><img src="../../_skin/basic/images/new_test_site/창신대학교.jpg" alt="창신대학교"></a></li>
+      <li><a target="_blank" href="http://www.chungwoon.ac.kr"><img src="../../_skin/basic/images/new_test_site/청운대학교.jpg" alt="청운대학교"></a></li>
+      <li><a target="_blank" href="http://topclasscoffee.alldaycafe.kr/"><img src="../../_skin/basic/images/new_test_site/탑클라스커피.jpg" alt="탑클라스커피"></a></li>
+      <li><a target="_blank" href="www.pcm.hs.kr"><img src="../../_skin/basic/images/new_test_site/평촌경영고등학교.jpg" alt="평촌경영고등학교"></a></li>
+      <li><a target="_blank" href="https://blog.naver.com/cafelunb"><img src="../../_skin/basic/images/new_test_site/포르타커피바리스타학원.jpg" alt="포르타커피바리스타학원" style="width: 280px; height: 45px; margin-top: 15px;"></a></li>
+      <li><a target="_blank" href="https://cafe.naver.com/paulmadeacademy"><img src="../../_skin/basic/images/new_test_site/폴메이드커피학원.jpg" alt="폴메이드커피학원"></a></li>
+      <li><a target="_blank" href="http://www.ktc.ac.kr/"><img src="../../_skin/basic/images/new_test_site/한국관광대학교.jpg" alt="한국관광대학교"></a></li>
+      <li><a target="_blank" href="http://kht.or.kr/"><img src="../../_skin/basic/images/new_test_site/한국호텔관광실용전문학교.jpg" alt="한국호텔관광실용전문학교"></a></li>
+      <li><a target="_blank" href="http://blog.daum.net/foreverorlove"><img src="../../_skin/basic/images/new_test_site/한산커피마을.jpg" alt="한산커피마을"></a></li>
+      <li><a target="_blank" href="https://www.uhs.ac.kr"><img src="../../_skin/basic/images/new_test_site/협성대학교.jpg" alt="협성대학교"></a></li>
+      <li><a target="_blank" href="http://www.honam.ac.kr/"><img src="../../_skin/basic/images/new_test_site/호남대학교.jpg" alt="호남대학교"></a></li>
+      <li><a target="_blank" href="http://www.howon.ac.kr/"><img src="../../_skin/basic/images/new_test_site/호원대학교.jpg" alt="호원대학교"></a></li>
+      <li><a target="_blank" href="http://hscook.net/"><img src="../../_skin/basic/images/new_test_site/효성요리아카데미교육원.jpg" alt="효성요리아카데미교육원"></a></li>
+    </ul>
+  </div>
+</body>
+</html>

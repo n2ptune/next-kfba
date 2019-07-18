@@ -1,0 +1,84 @@
+			<!-- 응시방법,장애인 필기검정 면제,자격검정 접수취소 및 전형료 환불 안내 -->
+
+			<h4 class="IconArrow">응시방법</h4>
+			<p class="contTxt">
+				- 개별 인터넷 접수<br>
+				- 개인정보보호를 위해 아이핀 인증후 홈페이지 회원가입<br>
+				- 회원가입 완료후 검정일정 및 검정장 확인후 검정접수<br>
+			</p>
+
+			<h4 class="IconArrow">장애인 필기검정 면제</h4>
+			<p class="contTxt">
+				- 본협회 검정장 또는 소속심사위원의 강의를 60시간 이상 수강한 자<br>
+				- 담당자와 유선통화후 구비서류 제출 및 절차 안내 (02-1899-3499)<br>
+				- 첨부파일 : 장애인필기면제 가이드 라인<br>
+			</p>
+
+			<h4 class="IconArrow">자격검정 접수취소 및 전형료 환불 안내</h4>
+			<p class="contTxt">
+				1. 접수취소처리 방법<br>
+				&nbsp;&nbsp;<근무시간, 평일 09시 ~ 18시><br>
+				&nbsp;&nbsp;&nbsp;- 본협회 홈페이지 '<b>커뮤니티게시판 - 질문과 답변</b>' 란에 기재<br>
+				&nbsp;&nbsp;&nbsp;- 본협회 담당자 유선통화 (<b>02-1899-3499</b>)<br>
+				&nbsp;&nbsp;<근무시간 이외 또는 주말><br>
+				&nbsp;&nbsp;&nbsp;- 본협회 홈페이지 '커뮤니티게시판 - 질문과 답변' 란에 기재<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(주말의 경우 해당 게시판에 접수취소관련 사항 기재 시점을 기준으로 처리함)<br><br>
+
+				2. 환불/취소처리 기준 및 기간 안내 <br>
+				&nbsp;&nbsp;1) 환불/취소처리 기준<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <b>환불취소처리 하고자 하는 해당 검정의 <font color="red">원서마감일</font> 기준</b><br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex) 커피바리스타 필기검정일 2013년 05월 25일(해당검정일)<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 원서접수 마감일(해당검정일 10일전 마감) --> 2013년 05월 15일 <br><br>
+
+				&nbsp;&nbsp;2) 환불처리 기간<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <b>원서접수 마감일로 부터 3일까지는 100% 환불처리</b> <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex) 검정응시일 : 2013년 05월 25일 <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> 원서접수마감일 : 2013년 05월 15일<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> 100%환불기간 : 2013년 05월 18일<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <b>원서접수 마감일로부터 3일경과 5일까지는 50% 환불처리</b><br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex) 검정응시일 : 2013년 05월 25일 <br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> 원서접수마감일 : 2013년 05월 15일<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-> 50%환불기간 : 2013년 05월 19일~20일<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <b>원서접수 마감일로 부터 5일 경과시에는 환불처리 불가</b><br><br><br>
+			</p>
+			
+			<div id="application_wrap">
+
+			<table cellpadding=0 cellspacing=0 width="100%" class="table_wrap">
+				<tr>
+					<td class="cell_view_title" style="width:14.28571428571429%">1/12(일)</td>
+					<td class="cell_view_title" style="width:14.28571428571429%">1/13(월)</td>
+					<td class="cell_view_title" style="width:14.28571428571429%">1/14(화)</td>
+					<td class="cell_view_title" style="width:14.28571428571429%">1/15(수)</td>
+					<td class="cell_view_title" style="width:14.28571428571429%">1/16(목)</td>
+					<td class="cell_view_title" style="width:14.28571428571429%">1/17(금)</td>
+					<td class="cell_view_title cell_no_rightLine" style="width:14.28571428571429%">1/18(토)</td>
+				</tr>
+				<tr>
+					<td class="cell_view_cont" style="text-align:center">&nbsp;</td>
+					<td class="cell_view_cont" style="text-align:center">&nbsp;</td>
+					<td class="cell_view_cont" style="text-align:center">&nbsp;</td>
+					<td class="cell_view_cont" style="text-align:center">검정접수<br>마감일<br><font color="red">기준일</font><br></td>
+					<td class="cell_view_cont" style="text-align:center"><font color="blue">100% 환불</font></td>
+					<td class="cell_view_cont" style="text-align:center"><font color="blue">100% 환불</font></td>
+					<td class="cell_view_cont cell_no_rightLine" style="text-align:center"><font color="blue">100% 환불</font></td>
+				</tr>
+				<tr>
+					<td class="cell_view_title" style="width:14.28571428571429%">1/19(일)</td>
+					<td class="cell_view_title" style="width:14.28571428571429%">1/20(월)</td>
+					<td class="cell_view_title" style="width:14.28571428571429%">1/21(화)</td>
+					<td class="cell_view_title" style="width:14.28571428571429%">1/22(수)</td>
+					<td class="cell_view_title" style="width:14.28571428571429%">1/23(목)</td>
+					<td class="cell_view_title" style="width:14.28571428571429%">1/24(금)</td>
+					<td class="cell_view_title cell_no_rightLine" style="width:14.28571428571429%">1/25(토)</td>
+				</tr>
+				<tr>
+					<td class="cell_view_cont" style="text-align:center"><font color="#00bfFf">50% 환불</font></td>
+					<td class="cell_view_cont" style="text-align:center"><font color="#00bfFf">50% 환불</font></td>
+					<td class="cell_view_cont" style="text-align:center">&nbsp;</td>
+					<td class="cell_view_cont" style="text-align:center">&nbsp;</td>
+					<td class="cell_view_cont" style="text-align:center">&nbsp;</td>
+					<td class="cell_view_cont" style="text-align:center">&nbsp;</td>
+					<td class="cell_view_cont cell_no_rightLine" style="text-align:center">검정<br>시행일</td>
+				</tr>
+			</table>

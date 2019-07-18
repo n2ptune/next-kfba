@@ -1,0 +1,6 @@
+.table tbody tr th, td {
+  cursor: pointer;
+}
+.bootstrap-select {
+  width: 100% !important;
+}

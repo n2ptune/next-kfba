@@ -1,0 +1,124 @@
+<!-- 비주얼 -->
+<div class="centerPageContants_visual_wrap">
+	<div class="centerPageContants_visual5" id="Contants_visual"></div>
+</div>
+<!-- 비주얼 -->
+<div class="center_contantsArea">
+	<!-- #include file = "../_skin/basic/comunity/leftMenu.html" -->
+
+	<div id="centerPageContants_wrap">
+		<div class="centerPageContantsBox">
+		
+			<div class="contTitleArea">
+				<div class="contPageTitle"><img src="{$imgDir}/centerTitle_comunity_04.jpg"></div>
+				<div class="contPageNavi">Home > 커뮤니티 > <b>구인</b></div>
+			</div>
+			
+			<h4 class="IconArrow">구인</h4>
+			<div id="board_wrap">
+				
+				<form name="fm" id="fm" action="fStaffP.asp" method="POST">
+					<input type="hidden" name="Idx" id="Idx" value="{$Idx}">
+					<input type="hidden" name="actType" id="actType" value="">
+					<input type="hidden" name="pageNo" value="{$pageNo}">
+					<input type="hidden" name="sName" value="{$sName}">
+					<input type="hidden" name="sId" value="{$sId}">
+					<input type="hidden" name="sTitle" value="{$sTitle}">
+					<input type="hidden" name="sContant" value="{$sContant}">
+					<input type="hidden" name="sWord" value="{$sWord}">
+				</form>
+
+				<table cellpadding=0 cellspacing=0 width="100%" class="table_wrap" style="table-layout: fixed;word-wrap:break-word;">
+					<tr>
+						<td class="cell_view_title" width="80">제목</td>
+						<td class="cell_view_cont cell_no_rightLine" colspan=5>{$Title} &nbsp;</td>
+					</tr>
+					<tr>
+						<td class="cell_view_title">기관명</td>
+						<td class="cell_view_cont cell_no_rightLine" colspan=5>{$CompanyName} &nbsp;</td>
+					</tr>
+					<tr>
+						<td class="cell_view_title">대표자명</td>
+						<td class="cell_view_cont" width="150">{$OwnerName} &nbsp;</td>
+						<td class="cell_view_title" width="80">구인담당자명</td>
+						<td class="cell_view_cont" width="150">{$ManagerName} &nbsp;</td>
+						<td class="cell_view_title" width="80">모집기간</td>
+						<td class="cell_view_cont cell_no_rightLine">{$Dates} &nbsp;</td>
+					</tr>
+					<tr>
+						<td class="cell_view_title">형태</td>
+						<td class="cell_view_cont">{$Form} &nbsp;</td>
+						<td class="cell_view_title">직종</td>
+						<td class="cell_view_cont">{$Kind} &nbsp;</td>
+						<td class="cell_view_title">모집인원</td>
+						<td class="cell_view_cont cell_no_rightLine">{$StaffCnt} &nbsp;</td>
+					</tr>
+					<tr>
+						<td class="cell_view_title">홈페이지</td>
+						<td class="cell_view_cont cell_no_rightLine" colspan=5><a href="http://{$HomePage}" target="_blank">{$HomePage}</a> &nbsp;</td>
+					</tr>
+					<tr>
+						<td class="cell_view_title">전화</td>
+						<td class="cell_view_cont cell_no_rightLine" colspan=5>{$Tel} &nbsp;</td>
+					</tr>
+					<tr>
+						<td class="cell_view_title">팩스</td>
+						<td class="cell_view_cont cell_no_rightLine" colspan=5>{$Fax} &nbsp;</td>
+					</tr>
+					<tr>
+						<td class="cell_view_title">이메일</td>
+						<td class="cell_view_cont cell_no_rightLine" colspan=5>{$Email} &nbsp;</td>
+					</tr>
+					<tr>
+						<td class="cell_view_title">주소</td>
+						<td class="cell_view_cont cell_no_rightLine" colspan=5>{$Addr} &nbsp;</td>
+					</tr>
+					
+					<tr>
+						<td class="cell_view_title">근무지역</td>
+						<td class="cell_view_cont cell_no_rightLine" colspan=5>{$WorkArea} &nbsp;</td>
+					</tr>
+					<tr>
+						<td class="cell_view_title">근무시간</td>
+						<td class="cell_view_cont cell_no_rightLine" colspan=5>{$WorkTime} &nbsp;</td>
+					</tr>
+					<tr>
+						<td class="cell_view_title">자격요건</td>
+						<td class="cell_view_cont cell_no_rightLine" colspan=5>{$Qualify} &nbsp;</td>
+					</tr>
+					<tr>
+						<td class="cell_view_title">준비서류</td>
+						<td class="cell_view_cont cell_no_rightLine" colspan=5>{$Files} &nbsp;</td>
+					</tr>
+					<tr>
+						<td class="cell_view_title">접수방법</td>
+						<td class="cell_view_cont cell_no_rightLine" colspan=5>{$Method} &nbsp;</td>
+					</tr>
+					<tr>
+						<td class="cell_view_title">급여</td>
+						<td class="cell_view_cont cell_no_rightLine" colspan=5>{$Pay} &nbsp;</td>
+					</tr>
+					<tr>
+						<td class="cell_view_title">4대보험<br>여부</td>
+						<td class="cell_view_cont cell_no_rightLine" colspan=5>{$insure} &nbsp;</td>
+					</tr>
+					<tr>
+						<td class="cell_view_title">비고</td>
+						<td class="cell_view_cont cell_no_rightLine" colspan=5 style="height:100px;" valign=top>{$Bigo} &nbsp;</td>
+					</tr>
+				</table>
+
+				<div class="btn_area">
+					<a href="fStaffL.asp?{$PageParams}"><img src="{$imgDir}/board/btn_list.jpg" align=left></a>
+					<!-- BLOCK BEGIN BOARD_BTN_WRITE -->
+					<a href="fStaffW.asp?{$PageParams}&Idx={$Idx}&actType=MODIFY"><img src="{$imgDir}/board/btn_modify.jpg"></a>
+					<a href="fStaffPwd.asp?{$PageParams}&Idx={$Idx}&actType=DELETE"><img src="{$imgDir}/board/btn_Delete.jpg"></a>
+					<!-- BLOCK END BOARD_BTN_WRITE -->
+				</div>
+
+			</div>
+
+
+		</div>
+	</div>
+</div>

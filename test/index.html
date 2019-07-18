@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-simplyscroll/2.1.1/jquery.simplyscroll.min.css" integrity="sha256-1nk6pWx4LkZXNHupUDSQCooz4uPtKRuLkxjNJscy7iQ=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-simplyscroll/2.1.1/jquery.simplyscroll.min.js" integrity="sha256-YtGxtUmiB9uUN3SSqXM6k7zvDEchlvFCfXzpEzhFZPw=" crossorigin="anonymous"></script>
+  <script src="./test.js"></script>
+  <style>
+    .container {
+      width: 100%;
+      height: 100px;
+      margin: 0 auto;
+    }
+    .simply-scroll, .simply-scroll-container, .simply-scroll-clip {
+      width: 100% !important;
+      height: 30px !important;
+    }
+    li {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <ul class="rolling">
+      <li><img src="../_skin/basic/images/banner_footer.jpg" alt="" usemap="#Map_banner"></li>
+    </ul>
+
+    <map name="Map_banner" id="Map_banner">
+      <area shape="rect" coords="0,0,123,39" href="http://www.tk.ac.kr/" target="_blank" onfocus="blur()" />
+      <area shape="rect" coords="123,0,248,39" href="http://www.ssc.ac.kr/" target="_blank" onfocus="blur()" />
+      <area shape="rect" coords="249,1,373,40" href="https://home.sjcu.ac.kr/" target="_blank" onfocus="blur()" />
+      <area shape="rect" coords="374,0,498,40" href="http://www.yeonsung.ac.kr/" target="_blank" onfocus="blur()" />
+      <area shape="rect" coords="498,0,622,40" href="http://www.dorip.ac.kr/" target="_blank" onfocus="blur()" />
+      <area shape="rect" coords="624,1,749,40" href="http://www.jwu.ac.kr/" target="_blank" onfocus="blur()" />
+      <area shape="rect" coords="749,1,874,40" href="http://home.chungwoon.ac.kr/" target="_blank" onfocus="blur()" />
+      <area shape="rect" coords="874,0,1000,40" href="https://www.honam.ac.kr/" target="_blank" onfocus="blur()" />
+    </map>
+  </div>
+</body>
+</html>

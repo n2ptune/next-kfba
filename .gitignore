@@ -1,0 +1,13 @@
+upload/
+
+_intranet/
+_smartedtior/
+
+# Security Ignore
+security/
+
+CheckPlusSafe/
+ipin/
+LGU_Xpay_ASP/
+
+.vscode/

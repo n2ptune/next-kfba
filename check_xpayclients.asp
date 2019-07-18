@@ -1,0 +1,3 @@
+<%
+server.CreateObject("XPayClientCOM.XPayClient") 
+%>

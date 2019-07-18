@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="euc-kr">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    * {
+      text-align: initial;
+    }
+  </style>
+  <title>일괄 접수</title>
+</head>
+<body>
+  <div id="container-fluid" class="mt-4">
+    <div class="grid-row">
+      <div class="alert alert-primary col-xs-12" role="alert">
+        <h4 class="alert-heading"><strong>일괄 접수 시스템</strong></h1>
+        <p>일괄 접수</p>
+        <hr>
+        <p>1. 사진 처리</p>
+        <p>2. 회원 정보 처리</p>
+        <p>3. 아이디 다중 처리</p>
+      </div>
+    </div>
+    <div class="grid-row">
+        <form 
+        enctype="multipart/form-data"
+        action="receive.asp"
+        method="POST"
+        id="file-post-form"
+      >
+        <div class="col-xs-12">
+          <label for="excelFile">엑셀 파일 업로드</label>
+          <input type="file" name="excelFile" id="excelFile" class="form-control" style="height: auto;" required>
+        </div>
+        <div class="col-xs-12 mt-2">
+          <label for="imageFile">이미지 파일 업로드</label>
+          <input type="file" name="imageFile" id="imageFile" class="form-control" style="height: auto;" required multiple>
+        </div>
+        <div class="col-xs-12">
+          <input type="submit" value="전송" id="form-submit" class="btn btn-primary mt-2" style="font-size: 20px; width: 100%;">
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

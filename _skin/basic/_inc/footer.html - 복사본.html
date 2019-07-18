@@ -1,0 +1,115 @@
+
+</div>
+
+<!-- BLOCK BEGIN QUICK_MENU -->
+<!-- 퀵메뉴 -->
+<div id="quick_menu" style="clear:both;position:absolute;top:-1000px;left:-1000px;width:90px;z-index:100;"> 
+<table cellpadding=0 cellspacing=0 border=0>
+	<tr>
+		<td><img src="{$imgDir}/q_01.jpg" width="90"></td>
+	</tr>
+	<tr>
+		<td><a href="../application/write.asp?applicationKey=56"><img src="{$imgDir}/q_02_off.jpg" width="90" class="rollover"></a></td>
+	</tr>
+	<!--tr>
+		<td><a href="../application/write.asp?applicationKey=57"><img src="{$imgDir}/q_03_off.jpg" width="90" class="rollover"></a></td>
+	</tr-->
+	<tr>
+		<td><a href="../application/write.asp?applicationKey=58"><img src="{$imgDir}/q_04_off.jpg" width="90" class="rollover"></a></td>
+	</tr>
+	<tr>
+		<td><a href="../application/write.asp?applicationKey=59"><img src="{$imgDir}/q_05_off.jpg" width="90" class="rollover"></a></td>
+	</tr>
+	<!--tr>
+		<td><a href="../application/write.asp?applicationKey=60"><img src="{$imgDir}/q_06_off.jpg" width="90" class="rollover"></a></td>
+	</tr-->
+	<tr>
+		<td><a href="../application/write.asp?applicationKey=61"><img src="{$imgDir}/q_07_off.jpg" width="90" class="rollover"></a></td>
+	</tr>
+	<tr>
+		<td><a href="../application/write.asp?applicationKey=62"><img src="{$imgDir}/q_08_off.jpg" width="90" class="rollover"></a></td>
+	</tr>
+	<tr>
+		<td><a href="#"><img src="{$imgDir}/q_02.jpg" width="90"></a></td>
+	</tr>
+</table>
+</div>
+
+<script type="text/javascript">
+var quick_menu = $('#quick_menu');
+var quick_top = 305;
+var left = ( $(window).scrollLeft() + ($(window).width() - quick_menu.width()) / 2 ) + 550;
+
+/* quick menu initialization */
+quick_menu.css( {'top': $(window).height() ,'left': left + 'px' } );
+$(document).ready(function(){
+	quick_menu.animate( { "top": $(document).scrollTop() + quick_top +"px" }, 500 ); 
+	$(window).scroll(function(){
+		quick_menu.stop();
+		quick_menu.animate( { "top": $(document).scrollTop() + quick_top + "px" }, 1000 );
+	});
+});
+</script>
+<!-- 퀵메뉴 -->
+<!-- BLOCK END QUICK_MENU -->
+
+
+<div id="footer_wrap">
+	<div class="bannerBoxBg">
+		<div class="bannerBox">
+			<!--ul>
+				<li><img src="{$imgDir}/banner_footer1.jpg"></li>
+				<li><img src="{$imgDir}/banner_footer2.jpg"></li>
+				<li><img src="{$imgDir}/banner_footer3.jpg"></li>
+				<li><img src="{$imgDir}/banner_footer4.jpg"></li>
+			</ul-->
+			<ul>
+				<li><img src="{$imgDir}/banner_footer.jpg" usemap="#Map_banner_footer"></li>
+			</ul>
+		</div>
+	<div>
+
+	<div class="copyrightBox">
+		<div class="footerLogoArea"><img src="{$imgDir}/footerLogo.jpg"></div>
+
+		<div class="footerCopyrightArea">
+			<div class="footerCopyrightArea_btn">
+				<ul>
+					<li><a href="../about/"><img src="{$imgDir}/btn_footer1.jpg"></a></li>
+					<li><a href="../member/agree.asp"><img src="{$imgDir}/btn_footer2.jpg"></a></li>
+					<li><a href="../member/agree.asp"><img src="{$imgDir}/btn_footer3.jpg"></a></li>
+				</ul>
+			</div>
+			<div class="footerCopyrightArea_images" style="color:#9c9c9c;font-size:11px;line-height:160%;">
+				<!--img src="{$imgDir}/footerInfo.jpg"-->
+				상호:한국외식음료협회&nbsp;&nbsp;
+				대표:임영철&nbsp;&nbsp;
+				주소:서울시 성동구 마조로3나길 28  B1&nbsp;&nbsp;
+				사업자등록번호:119-86-68711
+				<br>
+				개인정보취급담당자:김문희&nbsp;&nbsp;
+				통신판매번호:제2014-서울성동-1104호&nbsp;&nbsp;
+				고객센터:<span style="color:#d8232a">1899-3499</span> 이메일:kfba2013@naver.com<br>
+				COPYRIGHT (C) KFBA ALL RIGHTS RESERVED.
+			</div>
+		</div>
+		
+
+	</div>
+
+</div>
+
+<map name="Map_banner_footer" id="Map_banner_footer">
+  <area shape="rect" coords="0,0,123,39" href="http://www.gangdong.ac.kr/" target="_blank" onfocus="blur()" />
+  <area shape="rect" coords="123,0,248,39" href="http://www.seojeong.ac.kr/" target="_blank" onfocus="blur()" />
+  <area shape="rect" coords="249,1,373,40" href="http://www.kyungmin.ac.kr/" target="_blank" onfocus="blur()" />
+  <area shape="rect" coords="374,0,498,40" href="http://www.kookje.ac.kr/" target="_blank" onfocus="blur()" />
+  <area shape="rect" coords="498,0,622,40" href="http://portal.sjcu.ac.kr/" target="_blank" onfocus="blur()" />
+  <area shape="rect" coords="624,1,749,40" href="http://cec.ssc.ac.kr/" target="_blank" onfocus="blur()" />
+  <area shape="rect" coords="749,1,874,40" href="http://www.kyungbok.ac.kr/" target="_blank" onfocus="blur()" />
+  <area shape="rect" coords="874,0,1000,40" href="http://www.honam.ac.kr/" target="_blank" onfocus="blur()" />
+
+</map>
+
+</body>
+</HTML>

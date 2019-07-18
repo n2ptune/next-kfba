@@ -1,0 +1,42 @@
+<html>
+ <head>
+  <title> 한국외식음료협회 </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+
+  <SCRIPT LANGUAGE="JavaScript">
+function setCookie( name, value, expiredays ){ 
+	var todayDate = new Date(); 
+	todayDate.setDate( todayDate.getDate() + expiredays ); 
+	document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";" 
+} 
+function closeWin(){
+	if ( document.all.checkbox13.checked ){ 
+		setCookie( "mainpop1", "done1" , 1 ); 
+	}
+	self.close();
+}
+function window::onload(){
+	var innerBody=document.body
+	var innerHeight=innerBody.scrollHeight
+	resizeTo(200,innerHeight)
+	var innerWidth=innerBody.scrollWidth+(innerBody.offsetWidth - innerBody.clientWidth);
+	innerHeight=(innerBody.scrollHeight)*2 - innerBody.offsetHeight;
+	resizeTo(innerWidth+6,innerHeight+4)
+}
+</SCRIPT>
+
+ </head>
+<body leftmargin=0 topmargin=0>
+<table cellpadding=0 cellspacing=0 border=0>
+	<tr>
+		<td><img src="pup_130417.jpg"></td>
+	</tr>
+	<tr>
+		<td height="20" style="background-color:#000000;color:#ffffff;padding-right:10px;font-size:9pt;" align=right> <input type="checkbox" name="checkbox13" onclick="closeWin()"> 오늘하루 이창을 열지 않습니다. <a href="javascript:void(closeWin())" style="color:#ffffff;">[닫기]</a> </td>
+	</tr>
+</table>
+</body>

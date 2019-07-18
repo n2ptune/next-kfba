@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <link rel="stylesheet" href="../_skin/basic/upload-excel/css/index.css">
+  <meta charset="euc-kr">
+  <title>엑셀 업로드</title>
+</head>
+<body>
+  <script src="../_skin/basic/upload-excel/js/index.js"></script>
+  <div id="container">
+    <div class="alert alert-success" role="alert">
+      <h4 class="alert-heading" style="text-align: start;"><strong>일괄 처리 시스템</strong></h4>
+      <p>아래의 주의 사항을 꼭 지켜주세요.</p>
+      <hr>
+      <p>1. 파일은 꼭 <kbd>*.xlsx</kbd> 형식이어야 합니다.</p>
+      <p>2. 파일의 형식은 꼭 <kbd>순번 - 성명 - 수검번호 - 연락처 - 점수 - 결과</kbd> 형식으로 작성되어야 합니다.</p>
+      <p>3. Sheet1에 내용이 적혀있어야 합니다.</p>
+    </div>
+      <form 
+        enctype="multipart/form-data"
+        action="receive.asp"
+        method="POST"
+        id="file-post-form"
+      >
+        <div class="row">
+          <div class="col-sm-12">
+            <input type="file" name="excelFile" id="excelFile" class="form-control" style="height: auto;" required>
+          </div>
+          <div class="mt-2 col-sm-12">
+            <input type="submit" value="전송" id="form-submit" class="btn btn-success col-sm-12" style="font-size: 1.5rem;">
+          </div>
+        </div>
+      </form>
+  </div>
+</body>
+</html>

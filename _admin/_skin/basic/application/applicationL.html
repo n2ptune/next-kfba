@@ -1,0 +1,392 @@
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../_skin/basic/_inc/css/snackbar.css">
+  <script src="../_skin/basic/_inc/js/snackbar.js"></script>
+</head>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#check_all').click(function(){
+		if( $(this).is(":checked") ){
+			$(':checkbox[name="adminIdx"]').attr('checked', true);
+		}else{
+			$(':checkbox[name="adminIdx"]').attr('checked', false);
+		}
+	});
+
+	$('#sPhone3').keyup(function(e){
+		CheckSpace_alert($(this),'number');
+	});
+	$('#sSnumber').keyup(function(e){
+		CheckSpace_alert($(this),'number');
+	});
+
+	$(':input[name="State"]').change(function(){
+		var $obj    = $(this);
+		var idx     = $obj.attr('idx');
+		var values  = $obj.val();
+    var dValues = $obj.attr('defaultValues');
+    var score   = 0;
+		// 수검번호 공간
+		var $objSnumArea = $obj.parent().prev();
+
+		if( !values || !idx || !dValues ){
+			alert('잘못된 인수 입니다. 관리자에게 문의 하세요.')
+			return false;
+		}
+
+		if(confirm('변경하시겠습니까?')){
+      /* 합격일 때 */
+      if(values === "10") {
+        score = prompt("합격 점수를 입력하세요.");
+        score = score.trim();
+      }
+			// 비동기 통신 text : ok,fail,login
+			pop_loading();
+			$.ajax({
+				type: "POST",
+				dataType: "html",
+				url: "ajax.updateState.asp",
+				data: {
+					 idx     : idx
+          ,values  : values,
+          score: score
+				} ,
+				success: function(msg){
+					var tMsg = msg.split(',');
+					if(tMsg[0]=='login'){
+						alert('로그인 세션 만료!');location.reload();return false;
+					}
+					if(tMsg[0]=='ok'){
+						alert('변경되었습니다.');
+						$obj.attr('defaultValues',values);
+						if( tMsg[1] ){
+							$objSnumArea.html( tMsg[1] );
+						}
+					}
+					if(tMsg[0]=='fail'){
+						alert('ERR [501] : 새로고침 또는 잠시후에 시도해주세요.');
+						//$obj.val( dValues );
+					}
+					layerPopupClose('wall_loading','pop_loading');
+				},error:function(err){
+					alert('ERR [502] : 고객센터에 문의하세요.' + err.responseText);
+					layerPopupClose('wall_loading','pop_loading');
+					//$obj.val( dValues );
+					$obj.children('option[value = ' + dValues + ']').attr("selected", "true");
+				}
+			});
+		}else{
+			//$obj.val( dValues );
+			//$obj.children('option[value = ' + dValues + ']').attr("selected", "ture");
+		}
+	})
+})
+
+function printGo() {
+  // 스낵바 컨트롤
+  var snackBar = new SnackBar;
+  
+  snackBar.make("message", [
+    "프린트 모드 - 정상적으로 실행이 안 될 경우 크롬으로 실행해주세요. 크롬으로도 안되면 최신버전으로 업그레이드 해주세요.",
+
+    "retry",
+
+    "bottom",
+
+    "center"
+  ], 5000);
+  // 인덱스와 파라미터를 담을 배열
+  var userProperty = [];
+
+  var idxList = $('.td-idx').each(function(i, el) {
+    var tempProperty = {};
+    var paramList = $('.td-page-param').each(function(i, el) {
+      tempProperty.param = $(this).text();
+    });
+    tempProperty.idx = $(this).text();
+    userProperty.push(tempProperty);
+  });
+  var paramList = $('.td-page-param').text();
+
+  // 테이블 내용을 담을 배열
+  var userTable = [];
+
+  $.each(userProperty, function(i, el) {
+    var urlTemp = `applicationW.asp?idx=${el.idx}&${el.param}`;
+    $.ajax({
+      type: 'GET',
+      url: urlTemp,
+      dataType: 'html',
+      async: false,
+      success: function(result) {
+        userTable.push($(result)
+          .find('#printArea')
+          .html());
+      },
+      error: function(result) {
+        console.log(result);
+      },
+      complete: function(result) {
+      }
+    });
+  });
+
+  console.log(userTable);
+
+  var w = window.open('', '', 'width=800, height=700');
+  self.focus();
+  
+  w.document.open();
+  w.document.write('<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">');
+  w.document.write('<HEAD><TITLE> 수검표 출력 </TITLE>');
+  w.document.write('<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />');
+  w.document.write('<link href="../../_lib/css/common.css" rel="stylesheet" type="text/css" />');
+  w.document.write('<link href="../_skin/basic/_inc/css/admin.css" rel="stylesheet" type="text/css" />');
+  w.document.write('<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">');
+  w.document.write('<style>');
+  w.document.write('#photo_modify_btn {');
+  w.document.write('display: none; }');
+  w.document.write('@media print {');
+  w.document.write('#printArea { page-break-after: always; } }');
+  w.document.write('</style>');
+  w.document.write('<html xmlns="http://www.w3.org/1999/xhtml" lang="ko"></HEAD>');
+  w.document.write('<body>');
+  for(var i = 0; i < userTable.length; i++) {
+    w.document.write('<div id="printArea">');
+    // 문자열 변경
+    userTable[i] = userTable[i].replace('/upload/', 'http://kfba.or.kr/upload/');
+    w.document.write(userTable[i]);
+    // console.log(userTable[i]);
+    w.document.write('</div>');
+  }
+  w.document.write('</body>');
+  w.document.write('</html>');
+
+  setTimeout(function() {
+    w.print();
+    w.close();
+  }, 1250);
+}
+
+function del_fm_checkbox(){
+	if( $(":checkbox[name='adminIdx']:checked").length==0 ){
+		alert("삭제할 항목을 하나이상 체크해주세요.");
+		return;
+	}
+	if(confirm("삭제 하시겠습니까?")){
+		$('#actType').val('DELETE');
+		$('#fm').submit();
+	}
+}
+</script>
+<snackbar></snackbar>
+<div class="center_leftCont_wrap">
+	
+	<table cellpadding=0 cellspacing=0 border=0 width="100%" >
+		<tr>
+			<td width="50%" class="centerPage_Title"> ■ 응시관리</td>
+			<td width="50%" align=right><img src="{$imgDir}/navi_icon.gif"> 응시관리 > 검정응시 관리</td>
+		</tr>
+		<tr><td class=center_cont_title_bg colspan=2></td></tr>
+		<tr>
+			<td colspan=2 style="padding:10px 0px 10px 0px"><img src="{$imgDir}/center_sub_search.gif"></td>
+		</tr>
+
+		<form name="sfm" method="get">
+		<input type="hidden" name="sPcode" value="{$sPcode}">
+
+
+		<tr><td height="10"></td></tr>
+		<tr>
+			<td colspan=2 >
+
+				<table cellpadding=0 cellspacing=0 width="100%" class="line_box_table">
+					<tr>
+						<td class="line_box" align=center bgcolor="f0f0f0" width="140">접수일</td>
+						<td class="line_box" colspan=3>
+						<input type="text" class="input" id="sIndate" name="sIndate" readonly value="{$sIndate}" size=15> 
+						<img src="{$imgDir}/center_icon_carender.gif" onclick="callCalendar(sfm.sIndate);"> - 
+						<input type="text" class="input" id="sOutdate" name="sOutdate" readonly value="{$sOutdate}" size=15>
+						<img src="{$imgDir}/center_icon_carender.gif" onclick="callCalendar(sfm.sOutdate);"> 
+						<a href="javascript:date_input('sIndate','sOutdate','{$s1Day}','{$s1Day}')">[오늘]</a>
+						<a href="javascript:date_input('sIndate','sOutdate','{$s7Day}','{$s1Day}')">[7일전]</a>
+						<a href="javascript:date_input('sIndate','sOutdate','{$s30Day}','{$s1Day}')">[30일전]</a>
+						&nbsp;
+						<a href="javascript:date_input('sIndate','sOutdate','','')">[날짜초기화]</a>
+						</td>
+					</tr>
+					<tr>
+						<td class="line_box" align=center bgcolor="f0f0f0" width="140">검정시행일</td>
+						<td class="line_box" width="250">
+							<select name="sOnDate">{$SearchOnDateOption}</select>
+							<select name="sOnTime">{$hoursOption}</select>
+						</td>
+						<td class="line_box" align=center bgcolor="f0f0f0" width="140">검정장 이름</td>
+						<td class="line_box" width="250"><input type="text" class="input" name="sArea" value="{$sArea}" style="width:100%" maxlength="200"></td>
+					</tr>
+					<tr>
+						<td class="line_box" align=center bgcolor="f0f0f0" width="140">아이디</td>
+						<td class="line_box" width="250"><input type="text" class="input" name="sId" value="{$sId}" style="width:100%" maxlength="50"></td>
+						<td class="line_box" align=center bgcolor="f0f0f0" width="140">이름</td>
+						<td class="line_box" width="250"><input type="text" class="input" name="sName" value="{$sName}" style="width:100%" maxlength="50"></td>
+					</tr>
+					<tr>
+						<td class="line_box" align=center bgcolor="f0f0f0" width="140">연락처 뒷자리</td>
+						<td class="line_box" width="250"><input type="text" class="input" name="sPhone3" id="sPhone3" value="{$sPhone3}" style="width:50px;" maxlength="4"></td>
+						<td class="line_box" align=center bgcolor="f0f0f0" width="140">접수현황</td>
+						<td class="line_box" width="250"><select name="sState">{$StateOption}</select></td>
+					</tr>
+					<tr>
+						<td class="line_box" align=center bgcolor="f0f0f0" width="140">수검번호</td>
+						<td class="line_box" width="250"><input type="text" class="input" name="sSnumber" id="sSnumber" value="{$sSnumber}" style="width:100%;" maxlength="13"></td>
+						<td class="line_box" align=center bgcolor="f0f0f0" width="140">방법/급수</td>
+						<td class="line_box" width="250">
+							<select name="sKind">{$KindOption}</select>
+							<select name="sClass">{$ClassOption}</select>
+						</td>
+					</tr>
+				</table>
+
+			</td>
+		</tr>
+		<tr><td height="10"></td></tr>
+		<tr>
+			<td align=center colspan=2><input type="image" src="{$imgDir}/center_btn_Search.gif"></td>
+		</tr>
+
+    </form>
+    <tr>
+        <td><img src="{$imgDir}/center_sub_search_data.gif"></td>
+        <td align=right><a href="excel.application.asp?{$PageParams}">[엑셀 다운로드]</a></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td align=right><a href="../upload-excel/">[일괄 처리]</a></td>
+        </tr>
+      <tr>
+        <td></td>
+        <td align=right><a href="../batch_receive/">[일괄 접수]</a></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td align=right><a style="cursor: pointer;" onclick="printGo()">[일괄 출력 - IE에서 실행 불가]</a></td>
+      </tr>
+		<!-- <tr>
+      <td><img src="{$imgDir}/center_sub_search_data.gif"></td>
+      <td align=right><a class="btn btn-primary" href="excel.application.asp?{$PageParams}"
+        aria-pressed="true" role="button">[엑셀 다운로드]</a></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td align=right><a class="btn btn-primary" href="../upload-excel/">[일괄 처리]</a></td>
+      </tr>
+    <tr>
+      <td></td>
+      <td align=right><a class="btn btn-primary" href="../batch_receive/">[일괄 접수]</a></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td align=right><button class="btn btn-primary" role="printButton" type="button">[일괄 출력(프린트)]</button></td>
+    </tr> -->
+    <!-- <tr>
+      <td></td>
+      <td align=right><button type="button" class="mb-1 btn btn-secondary btn-lg"
+        href="excel.application.asp{$PageParams}">엑셀 다운로드</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td align=right><button type="button" class="mb-1 btn btn-secondary btn-lg"
+        href="../upload-excel">일괄 처리</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td align=right><button type="button" class="mb-1 btn btn-secondary btn-lg"
+        href="../batch_receive">일괄 접수</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td align=right><button type="button" class="mb-1 btn btn-secondary btn-lg"
+        onclick="alert('테스트')">일괄 출력(프린트)</button></td>
+      </tr> -->
+    <tr><td height="10"></td></tr>
+
+		<form name="fm" id="fm" method="post" action="applicationP.asp">
+		<input type="hidden" name="actType" id="actType" value="">
+
+		<input type="hidden" name="pageNo"  value="{$pageNo}">
+		<input type="hidden" name="sIndate" value="{$sIndate}">
+		<input type="hidden" name="sPcode"  value="{$sPcode}">
+		<input type="hidden" name="sOnDate" value="{$sOnDate}">
+		<input type="hidden" name="sArea"   value="{$sArea}">
+
+		<input type="hidden" name="sId"     value="{$sId}">
+		<input type="hidden" name="sName"   value="{$sName}">
+		<input type="hidden" name="sPhone3" value="{$sPhone3}">
+		<input type="hidden" name="sState"  value="{$sState}">
+		<input type="hidden" name="sScore"  value="{$sScore}">
+		<input type="hidden" name="sSnumber" value="{$sSnumber}">
+
+    <input type="hidden" name="sOnTime" value="{$sOnTime}">
+    <tr>
+        <td colspan=2>
+          <table cellpadding=0 cellspacing=0 width="100%" class="line_box_table">
+            <tr height="35" align=center bgcolor="f0f0f0" class="table-title">
+              <!--td class="line_box" width="20"><input type="checkbox" name="check_all" id="check_all"></td -->
+              <td class="line_box" width="7%">NO</td>
+              <td class="line_box" width="9%">아이디</td>
+              <td class="line_box" width="7%">성명</td>
+              <td class="line_box" width="14%">연락처</td>
+              <td class="line_box" width="9%">자격종목</td>
+              <td class="line_box" width="9%">지정검정장</td>
+              <td class="line_box" width="11%">검정일자</td>
+              <td class="line_box" width="11%">접수일자</td>
+              <td class="line_box" width="6%">수검번호</td>
+              <td class="line_box" width="12%">접수현황</td>
+              <td class="line_box" width="5%">점수</td>
+            </tr>
+            <!-- BLOCK BEGIN APPLICATION_LOOP -->
+            <tr>
+              <!--td class="line_box"><input type="checkbox" name="Idx" value="{$Idx}"></td-->
+              <td class="line_box" align=center>{$rownum}</td>
+              <td class="td-idx" style="display: none;">{$Idx}</td>
+              <td class="td-page-param" style="display: none;">{$PageParams}</td>
+              <td class="line_box" onclick="location.href='applicationW.asp?idx={$Idx}&{$PageParams}';" align=center style="cursor:pointer;">{$UserId}</td>
+              <td class="line_box" onclick="location.href='applicationW.asp?idx={$Idx}&{$PageParams}';" align=center style="cursor:pointer;">{$UserName}</td>
+              <td class="line_box" onclick="location.href='applicationW.asp?idx={$Idx}&{$PageParams}';" align=center style="cursor:pointer;">{$UserPhone}</td>
+              <td class="line_box" onclick="location.href='applicationW.asp?idx={$Idx}&{$PageParams}';" align=center style="cursor:pointer;">{$ProgramNema}</td>
+              <td class="line_box" onclick="location.href='applicationW.asp?idx={$Idx}&{$PageParams}';" align=center style="cursor:pointer;">{$AreaName}</td>
+              <td class="line_box" onclick="location.href='applicationW.asp?idx={$Idx}&{$PageParams}';" align=center style="cursor:pointer;">{$OnData}</td>
+              <td class="line_box" onclick="location.href='applicationW.asp?idx={$Idx}&{$PageParams}';" align=center style="cursor:pointer;">{$InData}</td>
+              <td class="line_box" onclick="location.href='applicationW.asp?idx={$Idx}&{$PageParams}';" align=center style="cursor:pointer;">{$Snumber}</td>
+              <td class="line_box" align=center><select name="State" idx="{$Idx}" defaultValues="{$State}">{$StateMyOption}</select></td>
+              <td class="line_box" align=center style="color: blue;">{$Score}</td>
+            </tr>
+            <!-- BLOCK END APPLICATION_LOOP -->
+  
+            <!-- BLOCK BEGIN LOOP_NODATA -->
+            <tr>
+              <td class="line_box" align=center colspan=10>등록된 내용이 없습니다.</td>
+            </tr>
+            <!-- BLOCK END LOOP_NODATA -->
+          </table>
+  
+        </td>
+      </tr>
+		</form>
+		<tr><td height="20"></td></tr>
+		<tr>
+			<td align=center colspan=2>{$pageList}</td>
+		</tr>
+		<tr><td height="20"></td></tr>
+		<tr>
+			<td align=center colspan=2>
+				<!--a href="applicationW.asp"><img src="{$imgDir}/center_btn_write_ok.gif"></a> &nbsp;&nbsp;-->
+				<!--a href="javascript:void(del_fm_checkbox())"><img src="{$imgDir}/center_btn_delete.gif"></a-->
+			</td>
+		</tr>
+	</table>
+	
+	
+
+</div>

@@ -21,7 +21,7 @@ ntpl.setBlockErrorCheck(false)
 ntpl.setTplDir( FRONT_ROOT_DIR & TPL_DIR_FOLDER )
 
 ntpl.setFile array( _
-	 array("HEADER" , "_inc/header.html") _
+	 array("HEADER" , "_inc/new_header.html") _
 	,array("MAIN"   , "main/main.html") _
 	,array("FOOTER" , "_inc/footer.html") _
 ), ""

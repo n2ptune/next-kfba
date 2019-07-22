@@ -31,9 +31,6 @@
         width: 100% !important;
         height: 30px !important;
       }
-      .container ul {
-
-      }
       .container ul li {
         width: auto !important;
         margin-right: 25px !important;
@@ -54,46 +51,46 @@
 <body>
 <script type="text/javascript">
 	
-$(document).ready(function(){
-  /* 네비게이션 */
-	var top_menu_open = 1;
-	var top_menu_state = 1;	
-	var open_menu = $('#top_navigation_sub');
-	$('#top_navigation > ul').hover(
-		function(){ top_menu_open = 0; },
-		function(){ top_menu_open = 1; }
-	);
-	open_menu.find('div.ulwrap').hover(
-		function(){ top_menu_open = 0; },
-		function(){ top_menu_open = 1; }
-	);
-	var timer = setInterval(setTopmenuOpen, 30);
-	function setTopmenuOpen(){
-		if(top_menu_open==0 && top_menu_state==1){
-			open_menu.slideDown(100,function(){top_menu_state=0;});
-		}else if(top_menu_open==1 && top_menu_state==0){
-			open_menu.slideUp(100,function(){top_menu_state=1;});
-		}
-	}
-	/* 네비게이션 */
-	/* 네비게이션 서브메뉴 li 스타일 */
-	open_menu.find('li').hover(
-		function(){
-			$(this).attr('class','on').find('a').css('color','#ffffff');
-		},
-		function(){
-			$(this).attr('class','').find('a').css('color','#3c3c3c');
-		}
-	);
-	open_menu.find('li').click(function(){
-		location.href = $(this).find('a').attr('href');
-	});
-	/* 서브비주얼 */
-	$('#Contants_visual').fadeIn(2000);	
+// $(document).ready(function(){
+//   /* 네비게이션 */
+// 	var top_menu_open = 1;
+// 	var top_menu_state = 1;	
+// 	var open_menu = $('#top_navigation_sub');
+// 	$('#top_navigation > ul').hover(
+// 		function(){ top_menu_open = 0; },
+// 		function(){ top_menu_open = 1; }
+// 	);
+// 	open_menu.find('div.ulwrap').hover(
+// 		function(){ top_menu_open = 0; },
+// 		function(){ top_menu_open = 1; }
+// 	);
+// 	var timer = setInterval(setTopmenuOpen, 30);
+// 	function setTopmenuOpen(){
+// 		if(top_menu_open==0 && top_menu_state==1){
+// 			open_menu.slideDown(100,function(){top_menu_state=0;});
+// 		}else if(top_menu_open==1 && top_menu_state==0){
+// 			open_menu.slideUp(100,function(){top_menu_state=1;});
+// 		}
+// 	}
+// 	/* 네비게이션 */
+// 	/* 네비게이션 서브메뉴 li 스타일 */
+// 	open_menu.find('li').hover(
+// 		function(){
+// 			$(this).attr('class','on').find('a').css('color','#ffffff');
+// 		},
+// 		function(){
+// 			$(this).attr('class','').find('a').css('color','#3c3c3c');
+// 		}
+// 	);
+// 	open_menu.find('li').click(function(){
+// 		location.href = $(this).find('a').attr('href');
+// 	});
+// 	/* 서브비주얼 */
+// 	$('#Contants_visual').fadeIn(2000);	
 	
-	/* 왼쪽메뉴 마지막 li 보더삭제 */
-	$('#leftMenu_wrap ul li:last').css('border-bottom','0px');
-})
+// 	/* 왼쪽메뉴 마지막 li 보더삭제 */
+// 	$('#leftMenu_wrap ul li:last').css('border-bottom','0px');
+// })
 
 </script>
 

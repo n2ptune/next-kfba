@@ -1,3 +1,6 @@
+<head>
+  <link rel="stylesheet" href="/_lib/css/main.css">
+</head>
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#main_banner_box_tables div.main_item_boxLine').hover(
@@ -76,7 +79,42 @@ function closeWinPup( pup , name,value ){
 	$('#'+pup).hide();
 }
 </script>
+<div id="main-carousel" class="carousel slide" data-ride="carousel">
 
+  <!-- 이미지 영역 -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block img-fluid" src="http://n2ptune.dothome.co.kr/img/photo_1.d51d760c.jpg" alt="커피1">
+      <div class="carousel-caption">
+        <h3>커피1</h3>
+        <p>커피1 이미지입니다.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid" src="http://joeunsesangnamu.cafe24.com/files/attach/images/143/210/aa29d9b336a9a09f432be01ad03020fd.jpg" alt="커피2">
+      <div class="carousel-caption">
+        <h3>커피2</h3>
+        <p>커피2 이미지입니다.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid" src="https://baraboda.com/file/2017/05/coffee-story-05.jpg" alt="커피3">
+      <div class="carousel-caption">
+        <h3>커피3</h3>
+        <p>커피3 이미지입니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 이전, 다음 아이콘 -->
+  <a href="#main-carousel" class="carousel-control-prev" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a href="#main-carousel" class="carousel-control-next" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+
+</div>
 <div id="main_contants">
 <div id="main_backgroundImages" class="marin_background"></div><!-- 백그라운드 -->
 

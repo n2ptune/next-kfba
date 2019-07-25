@@ -1,3 +1,16 @@
+body {
+  font-family: 'Nanum Gothic', sans-serif !important;
+}
 .bg-011627 {
   background-color: #011627 !important;
+}
+.bg-353866 {
+  background-color: #353866 !important;
+}
+.text-light-muted {
+  color: #8b8b8b !important;
+}
+.link-delete-blue,
+.link-delete-blue:visited {
+  color: inherit !important;
 }

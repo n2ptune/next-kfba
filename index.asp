@@ -2,16 +2,12 @@
 <!-- #include file = "./_lib/template.class.asp" -->
 <!-- #include file = "_lib/pront.common.asp" -->
 <%
-Dim arrAppl    , arrNoti  , arrgallery
-Dim cntAppl    : cntAppl    = -1
-Dim cntNoti    : cntNoti    = -1
-Dim cntgallery : cntgallery = -1
 Dim boardKey   : boardKey   = 1  ' 공지사항 IDX
 Dim galleryKey : galleryKey = 14 ' 갤러리 IDX
 
 Call Expires()
 Call dbopen()
-	Call getList()
+	'Call getList()
 Call dbclose()
 
 
@@ -26,93 +22,56 @@ ntpl.setFile array( _
 	,array("FOOTER" , "_inc/footer.html") _
 ), ""
 
-'// 상단 로그인 블럭처리
-Call loginBlock_ntpl("HEADER","LOGIN_BOX","LOGOUT_BOX")
-call ntpl.setBlock("MAIN", array("BOARD_LOOP","GALLERY_LOOP" ,"APPL_LOOP"))
+' 카드 반복
+Call ntpl.setBlock("MAIN", array("CARD_LOOP"))
 
-call ntpl.setBlock("FOOTER", array("QUICK_MENU"))
-ntpl.tplBlockDel("QUICK_MENU")
+Dim cardArr(9, 2)
 
-'공지사항
-If cntNoti > -1 Then 
-	for iLoop = 0 to cntNoti
-		ntpl.setBlockReplace array( _
-			 array("Idx", arrNoti(NT_Idx,iLoop) ) _
-			,array("Title", HtmlTagRemover( arrNoti(NT_Title,iLoop) , 38 ) ) _
-			,array("Indate", arrNoti(NT_Indate,iLoop) ) _
-		), ""
-		ntpl.tplParseBlock("BOARD_LOOP")
-	Next 
-Else
-	ntpl.tplBlockDel("BOARD_LOOP")
-End If
-'갤러리
-If cntgallery > -1 Then 
-	for iLoop = 0 to cntgallery
+' (x, 0) : img
+' (x, 1) : title
+' (x, 2) : text
+cardArr(0, 0) = "01"
+cardArr(0, 1) = "커피바리스타"
+cardArr(0, 2) = "커피바리스타 응시 접수/안내"
+cardArr(1, 0) = "01"
+cardArr(1, 1) = "라떼아트/핸드드립"
+cardArr(1, 2) = "라떼아트/핸드드립 응시 접수/안내"
+cardArr(2, 0) = "02"
+cardArr(2, 1) = "와인소믈리에"
+cardArr(2, 2) = "와인소믈리에 응시 접수/안내"
+cardArr(3, 0) = "02"
+cardArr(3, 1) = "워터마스터소믈리에"
+cardArr(3, 2) = "워터마스터소믈리에 응시 접수/안내"
+cardArr(4, 0) = "03"
+cardArr(4, 1) = "믹솔로지스트"
+cardArr(4, 2) = "믹솔로지스트 응시 접수/안내"
+cardArr(5, 0) = "03"
+cardArr(5, 1) = "외식경영관리사"
+cardArr(5, 2) = "외식경영관리사 응시 접수/안내"
+cardArr(6, 0) = "04"
+cardArr(6, 1) = "식음료관리사"
+cardArr(6, 2) = "식음료관리사 응시 접수/안내"
+cardArr(7, 0) = "04"
+cardArr(7, 1) = "외식실무영어"
+cardArr(7, 2) = "외식실무영어 응시 접수/안내"
+cardArr(8, 0) = "05"
+cardArr(8, 1) = "외식실무일본어"
+cardArr(8, 2) = "외식실무일본어 응시 접수/안내"
+cardArr(9, 0) = "05"
+cardArr(9, 1) = "쇼콜라띠에"
+cardArr(9, 2) = "쇼콜라띠에 응시 접수/안내"
 
-		PhotoExt = FILE_CHECK_EXT_RETURN( arrgallery(GL_File,iLoop) )
-		If PhotoExt = "jpg" Or PhotoExt = "jpeg" Or PhotoExt = "gif" Or PhotoExt = "png" Or PhotoExt = "bmp" Then
-			Photos = "<div style=""padding-bottom:10px;"">" & img_resize(BOARD_PHOTO_PATH, arrgallery(GL_File,iLoop) ,93,61) & "</div>"
-		End If
-
-		ntpl.setBlockReplace array( _
-			 array("Idx"  , arrgallery(GL_Idx,iLoop) ) _
-			,array("Title", HtmlTagRemover( arrgallery(GL_Title,iLoop) , 13 ) ) _
-			,array("Photo", Photos ) _
-		), ""
-		ntpl.tplParseBlock("GALLERY_LOOP")
-	Next 
-Else
-	ntpl.tplBlockDel("GALLERY_LOOP")
-End If
-'응시일정
-If cntAppl > -1 Then 
-	for iLoop = 0 to cntAppl
-		
-		PrograName = arrAppl(AP_ProgramName,iLoop)
-
-		If arrAppl(AP_Class,iLoop) = "1" Then
-			PrograName = PrograName & " 1급"
-		ElseIf arrAppl(AP_Class,iLoop) = "2" Then
-			PrograName = PrograName & " 2급"
-		End If
-
-		If arrAppl(AP_Kind,iLoop) = "1" Then
-			PrograName = PrograName & " [필기]"
-		ElseIf arrAppl(AP_Kind,iLoop) = "2" Then
-			PrograName = PrograName & " [실기]"
-		End If
-
-		ProgramLink = "./application/write.asp?applicationKey=" & arrAppl(AP_CodeIdx,iLoop)
-		' 마감
-		If arrAppl(AP_EndDate,iLoop) < Left(Now(),10) Then
-			ProgramLink = "javascript:void(alert('응시 마감되었습니다.'))"
-		End If
-		' 접수전
-		If arrAppl(AP_StartDate,iLoop) > Left(Now(),10) Then 
-			ProgramLink = "javascript:void(alert('응시 접수기간이 아닙니다.'))"
-		End If
-		' 인원제한
-		If arrAppl(AP_MaxNumber,iLoop) <= arrAppl(AP_CNT_APP,iLoop) Then 
-			ProgramLink = "javascript:void(alert('응시 정원초과!'))"
-		End If
-
-		ntpl.setBlockReplace array( _
-			 array("CodeIdx"    , arrAppl(AP_CodeIdx,iLoop) ) _
-			,array("Link"       , ProgramLink ) _
-			,array("OnData"     , arrAppl(AP_OnData,iLoop) ) _
-			,array("ProgramName", PrograName ) _
-		), ""
-		ntpl.tplParseBlock("APPL_LOOP")
-	Next 
-Else
-	ntpl.tplBlockDel("APPL_LOOP")
-End If
-
+For i = 0 To UBound(cardArr, 1)
+  ntpl.setBlockReplace array( _
+    array("card_img", cardArr(i, 0)) _
+    ,array("card_title", cardArr(i, 1)) _
+    ,array("card_text", cardArr(i, 2)) _
+  ), ""
+  ntpl.tplParseBlock("CARD_LOOP")
+Next
 
 ntpl.tplAssign array(   _
 	 array("imgDir", TPL_DIR_IMAGES ) _
-
 	,array("boardKey", boardKey) _
 	,array("galleryKey", galleryKey) _
 ), ""

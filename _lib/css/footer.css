@@ -1,0 +1,11 @@
+.simply-scroll,
+.simply-scroll-container,
+.simply-scroll-clip {
+  width: 100% !important;
+  height: 2.2rem !important;
+}
+.simply-scroll-list img {
+  width: 13rem;
+  height: 2.2rem;
+  margin-right: 0.2rem;
+}

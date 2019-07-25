@@ -1,16 +1,30 @@
 @media (max-width: 1000px) {
-  .carousel-inner img {
-    width: 100%;
-    height: 400px;
-    max-height: 400px;
+  .carousel-inner, .carousel-inner img {
+    height: 400px !important;
+    max-height: 400px !important;
   }
 }
 @media (min-width: 1000.1px) {
-  .carousel-inner img {
-    width: 100%;
-    height: 800px;
-    max-height: 800px;
+  .carousel-inner, .carousel-inner img {
+    height: 550px !important;
+    max-height: 550px !important;
   }
+  #main-carousel, .carousel-inner {
+    max-height: 550px !important;
+  }
+}
+@media (min-width: 1800px) {
+  .carousel-inner, .carousel-inner img {
+    height: 700px !important;
+    max-height: 700px !important;
+  }
+  #main-carousel, .carousel-inner {
+    max-height: 700px !important;
+  }
+}
+.carousel-inner img {
+  width: 100%;
+  max-width: 100%;
 }
 .carousel-item.active,
 .carousel-item-next,

@@ -220,7 +220,6 @@ a.btnGrayBox{
 .main_item_boxLineBg{
 	background:url(../../images/mainBoxbg.png) no-repeat center top;
 }
-.mainBoxlink{/*cursor:pointer;*/}
 .items{cursor:pointer;margin:3px 0px 3px 0px;}
 
 .main_item_boxLine{
@@ -269,7 +268,6 @@ a.btnGrayBox{
 
 /* 메인 게시판 추출 */
 
-#main_mini_board {}
 #main_mini_gallery img{border:1px solid #000000;}
 .btn_mainBoardMore{
 	color:#b3b3b3;
@@ -603,7 +601,6 @@ div.BoxLineBottom{border-bottom:1px solid #000000;}
 
 /* 응시안내 표 */
 
-#application_wrap{}
 
 #application_wrap .cell_view_title{
 	border-bottom:1px solid #4f4f4f;
